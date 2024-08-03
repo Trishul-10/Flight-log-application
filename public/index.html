@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight Log App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    #login-form {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    #flight-log-container {
+      display: none;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">Flight Log App</h1>
+  <form id="login-form">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username"><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br><br>
+    <button>Login</button>
+    <p id="error-message"></p>
+  </form>
+  <div id="flight-log-container">
+    <h2>Flight Log Entries</h2>
+    <table id="flight-log-table">
+      <thead>
+        <tr>
+          <th>Tail Number</th>
+          <th>Flight ID</th>
+          <th>Takeoff</th>
+          <th>Landing</th>
+          <th>Duration</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="flight-log-tbody">
+      </tbody>
+    </table>
+    <button id="add-flight-log-button">Add Flight Log</button>
+    <button id="logout-button">Logout</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

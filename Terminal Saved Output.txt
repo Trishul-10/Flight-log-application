@@ -1,0 +1,1298 @@
+Last login: Sat Aug  3 00:24:31 on ttys001
+trishul@Trishulrams-MacBook-Pro ~ % mkdir flight-log-app
+cd flight-log-app
+npm init -y
+npm install express body-parse
+npm warn cli npm v10.8.2 does not support Node.js v16.20.2. This version of npm supports the following node versions: `^18.17.0 || >=20.5.0`. You can find the latest version at https://nodejs.org/.
+Wrote to /Users/trishul/flight-log-app/package.json:
+
+{
+  "name": "flight-log-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+
+
+
+npm warn cli npm v10.8.2 does not support Node.js v16.20.2. This version of npm supports the following node versions: `^18.17.0 || >=20.5.0`. You can find the latest version at https://nodejs.org/.
+
+added 65 packages, and audited 66 packages in 3s
+
+12 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+trishul@Trishulrams-MacBook-Pro flight-log-app % cd flight-log-app
+cd: no such file or directory: flight-log-app
+trishul@Trishulrams-MacBook-Pro flight-log-app % cd
+trishul@Trishulrams-MacBook-Pro ~ % is
+zsh: command not found: is
+trishul@Trishulrams-MacBook-Pro ~ % cd
+trishul@Trishulrams-MacBook-Pro ~ % ls
+Applications		Microsoft Aggrement.pdf	flight-log-app		my-react-app
+Desktop			Movies			flight-log-client	package-lock.json
+Documents		Music			flight_log_app		package.json
+Downloads		OneDrive		iCloud Drive (Archive)	venv
+Library			Pictures		instance
+Licence HP Printer.pdf	Public			mongodb-data
+trishul@Trishulrams-MacBook-Pro ~ % flight-log-app
+zsh: command not found: flight-log-app
+trishul@Trishulrams-MacBook-Pro ~ % ls
+Applications		Microsoft Aggrement.pdf	flight-log-app		my-react-app
+Desktop			Movies			flight-log-client	package-lock.json
+Documents		Music			flight_log_app		package.json
+Downloads		OneDrive		iCloud Drive (Archive)	venv
+Library			Pictures		instance
+Licence HP Printer.pdf	Public			mongodb-data
+trishul@Trishulrams-MacBook-Pro ~ % cd flight-log-app
+trishul@Trishulrams-MacBook-Pro flight-log-app % node server.js
+Server running on port 3000
+^C
+trishul@Trishulrams-MacBook-Pro flight-log-app % node server.js
+Server running on port 3000
+^C
+trishul@Trishulrams-MacBook-Pro flight-log-app % node server.js
+Server started on port 3000
+^C
+trishul@Trishulrams-MacBook-Pro flight-log-app % node server.js
+Server started on port 3000
+Error: ENOENT: no such file or directory, stat '/Users/trishul/flight-log-app/public/index.html'
+^C
+trishul@Trishulrams-MacBook-Pro flight-log-app % >....                                               
+    flightID: 'FL003',
+    takeoff: '2023-02-20T14:00:00',
+    landing: '2023-02-20T15:30:00',
+    duration: '1 hour 30 minutes'
+  }
+];
+
+// Middleware to parse JSON bodies
+app.use(express.json());
+
+// Endpoint to handle login requests
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+  // TO DO: implement actual authentication logic here
+  // For now, just return a success response
+  res.json({ success: true });
+});
+
+// Endpoint to retrieve flight log entries
+app.get('/flightlog', (req, res) => {
+  res.json(flightLogs);
+});
+
+// Endpoint to update a flight log entry
+app.put('/flightlog/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const updatedFlightLog = req.body;
+
+  const index = flightLogs.findIndex((flightLog) => flightLog.id === id);
+  if (index !== -1) {
+    flightLogs[index] = updatedFlightLog;
+    res.json({ success: true });
+  } else {
+    res.status(404).json({ error: 'Flight log not found' });
+  }
+});
+
+// Endpoint to delete a flight log entry
+app.delete('/flightlog/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+
+  const index = flightLogs.findIndex((flightLog) => flightLog.id === id);
+  if (index !== -1) {
+    flightLogs.splice(index, 1);
+    res.json({ success: true });
+  } else {
+    res.status(404).json({ error: 'Flight log not found' });
+  }
+});
+
+// Serve static files from the public folder
+app.use(express.static('public'));
+
+// Serve index.html at the root URL
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server started on port ${port}`);
+});
+zsh: parse error near `)'
+trishul@Trishulrams-MacBook-Pro flight-log-app % node server.js
+Server started on port 3000
+^C
+trishul@Trishulrams-MacBook-Pro flight-log-app % node server.js                                     
+Server started on port 3000
+^C
+trishul@Trishulrams-MacBook-Pro flight-log-app % node server.js
+Server started on port 3000
+^C
+trishul@Trishulrams-MacBook-Pro flight-log-app % node server.js
+Server started on port 3000
+^C
+trishul@Trishulrams-MacBook-Pro flight-log-app % 
+trishul@Trishulrams-MacBook-Pro flight-log-app % node server.js
+Server started on port 3000
+^C
+trishul@Trishulrams-MacBook-Pro flight-log-app % node server.js
+Server started on port 3000
+^C
+trishul@Trishulrams-MacBook-Pro flight-log-app % node server.js
+Server started on port 3000
+^C
+trishul@Trishulrams-MacBook-Pro flight-log-app % node server.js
+/Users/trishul/flight-log-app/server.js:1
+const loginButton = document.querySelector('#login-form button');
+                    ^
+
+ReferenceError: document is not defined
+    at Object.<anonymous> (/Users/trishul/flight-log-app/server.js:1:21)
+    at Module._compile (node:internal/modules/cjs/loader:1198:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
+    at Module.load (node:internal/modules/cjs/loader:1076:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:911:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:22:47
+trishul@Trishulrams-MacBook-Pro flight-log-app % node server.js
+/Users/trishul/flight-log-app/server.js:1
+const loginButton = document.querySelector('#login-form button');
+                    ^
+
+ReferenceError: document is not defined
+    at Object.<anonymous> (/Users/trishul/flight-log-app/server.js:1:21)
+    at Module._compile (node:internal/modules/cjs/loader:1198:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
+    at Module.load (node:internal/modules/cjs/loader:1076:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:911:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:22:47
+trishul@Trishulrams-MacBook-Pro flight-log-app % node server.js
+/Users/trishul/flight-log-app/server.js:2
+const loginButton = document.querySelector('#login-form button');
+                    ^
+
+ReferenceError: document is not defined
+    at Object.<anonymous> (/Users/trishul/flight-log-app/server.js:2:21)
+    at Module._compile (node:internal/modules/cjs/loader:1198:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
+    at Module.load (node:internal/modules/cjs/loader:1076:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:911:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:22:47
+trishul@Trishulrams-MacBook-Pro flight-log-app % node server.js
+Server started on port 3000
+^C
+trishul@Trishulrams-MacBook-Pro flight-log-app % node server.js
+Server started on port 3000
+^C
+trishul@Trishulrams-MacBook-Pro flight-log-app % node server.js
+Server started on port 3000
+^C
+trishul@Trishulrams-MacBook-Pro flight-log-app % node server.js
+Server started on port 3000
+^C
+trishul@Trishulrams-MacBook-Pro flight-log-app % node server.js
+Server started on port 3000
+^C
+trishul@Trishulrams-MacBook-Pro flight-log-app % git init
+Initialized empty Git repository in /Users/trishul/flight-log-app/.git/
+trishul@Trishulrams-MacBook-Pro flight-log-app % git add .
+trishul@Trishulrams-MacBook-Pro flight-log-app % git status
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   .DS_Store
+	new file:   index.html
+	new file:   node_modules/.DS_Store
+	new file:   node_modules/.bin/mime
+	new file:   node_modules/.package-lock.json
+	new file:   node_modules/accepts/HISTORY.md
+	new file:   node_modules/accepts/LICENSE
+	new file:   node_modules/accepts/README.md
+	new file:   node_modules/accepts/index.js
+	new file:   node_modules/accepts/package.json
+	new file:   node_modules/array-flatten/LICENSE
+	new file:   node_modules/array-flatten/README.md
+	new file:   node_modules/array-flatten/array-flatten.js
+	new file:   node_modules/array-flatten/package.json
+	new file:   node_modules/body-parse/package.json
+	new file:   node_modules/body-parser/HISTORY.md
+	new file:   node_modules/body-parser/LICENSE
+	new file:   node_modules/body-parser/README.md
+	new file:   node_modules/body-parser/SECURITY.md
+	new file:   node_modules/body-parser/index.js
+	new file:   node_modules/body-parser/lib/read.js
+	new file:   node_modules/body-parser/lib/types/json.js
+	new file:   node_modules/body-parser/lib/types/raw.js
+	new file:   node_modules/body-parser/lib/types/text.js
+	new file:   node_modules/body-parser/lib/types/urlencoded.js
+	new file:   node_modules/body-parser/package.json
+	new file:   node_modules/bytes/History.md
+	new file:   node_modules/bytes/LICENSE
+	new file:   node_modules/bytes/Readme.md
+	new file:   node_modules/bytes/index.js
+	new file:   node_modules/bytes/package.json
+	new file:   node_modules/call-bind/.eslintignore
+	new file:   node_modules/call-bind/.eslintrc
+	new file:   node_modules/call-bind/.github/FUNDING.yml
+	new file:   node_modules/call-bind/.nycrc
+	new file:   node_modules/call-bind/CHANGELOG.md
+	new file:   node_modules/call-bind/LICENSE
+	new file:   node_modules/call-bind/README.md
+	new file:   node_modules/call-bind/callBound.js
+	new file:   node_modules/call-bind/index.js
+	new file:   node_modules/call-bind/package.json
+	new file:   node_modules/call-bind/test/callBound.js
+	new file:   node_modules/call-bind/test/index.js
+	new file:   node_modules/content-disposition/HISTORY.md
+	new file:   node_modules/content-disposition/LICENSE
+	new file:   node_modules/content-disposition/README.md
+	new file:   node_modules/content-disposition/index.js
+	new file:   node_modules/content-disposition/package.json
+	new file:   node_modules/content-type/HISTORY.md
+	new file:   node_modules/content-type/LICENSE
+	new file:   node_modules/content-type/README.md
+	new file:   node_modules/content-type/index.js
+	new file:   node_modules/content-type/package.json
+	new file:   node_modules/cookie-signature/.npmignore
+	new file:   node_modules/cookie-signature/History.md
+	new file:   node_modules/cookie-signature/Readme.md
+	new file:   node_modules/cookie-signature/index.js
+	new file:   node_modules/cookie-signature/package.json
+	new file:   node_modules/cookie/HISTORY.md
+	new file:   node_modules/cookie/LICENSE
+	new file:   node_modules/cookie/README.md
+	new file:   node_modules/cookie/SECURITY.md
+	new file:   node_modules/cookie/index.js
+	new file:   node_modules/cookie/package.json
+	new file:   node_modules/debug/.coveralls.yml
+	new file:   node_modules/debug/.eslintrc
+	new file:   node_modules/debug/.npmignore
+	new file:   node_modules/debug/.travis.yml
+	new file:   node_modules/debug/CHANGELOG.md
+	new file:   node_modules/debug/LICENSE
+	new file:   node_modules/debug/Makefile
+	new file:   node_modules/debug/README.md
+	new file:   node_modules/debug/component.json
+	new file:   node_modules/debug/karma.conf.js
+	new file:   node_modules/debug/node.js
+	new file:   node_modules/debug/package.json
+	new file:   node_modules/debug/src/browser.js
+	new file:   node_modules/debug/src/debug.js
+	new file:   node_modules/debug/src/index.js
+	new file:   node_modules/debug/src/inspector-log.js
+	new file:   node_modules/debug/src/node.js
+	new file:   node_modules/define-data-property/.eslintrc
+	new file:   node_modules/define-data-property/.github/FUNDING.yml
+	new file:   node_modules/define-data-property/.nycrc
+	new file:   node_modules/define-data-property/CHANGELOG.md
+	new file:   node_modules/define-data-property/LICENSE
+	new file:   node_modules/define-data-property/README.md
+	new file:   node_modules/define-data-property/index.d.ts
+	new file:   node_modules/define-data-property/index.js
+	new file:   node_modules/define-data-property/package.json
+	new file:   node_modules/define-data-property/test/index.js
+	new file:   node_modules/define-data-property/tsconfig.json
+	new file:   node_modules/depd/History.md
+	new file:   node_modules/depd/LICENSE
+	new file:   node_modules/depd/Readme.md
+	new file:   node_modules/depd/index.js
+	new file:   node_modules/depd/lib/browser/index.js
+	new file:   node_modules/depd/package.json
+	new file:   node_modules/destroy/LICENSE
+	new file:   node_modules/destroy/README.md
+	new file:   node_modules/destroy/index.js
+	new file:   node_modules/destroy/package.json
+	new file:   node_modules/ee-first/LICENSE
+	new file:   node_modules/ee-first/README.md
+	new file:   node_modules/ee-first/index.js
+	new file:   node_modules/ee-first/package.json
+	new file:   node_modules/encodeurl/HISTORY.md
+	new file:   node_modules/encodeurl/LICENSE
+	new file:   node_modules/encodeurl/README.md
+	new file:   node_modules/encodeurl/index.js
+	new file:   node_modules/encodeurl/package.json
+	new file:   node_modules/es-define-property/.eslintrc
+	new file:   node_modules/es-define-property/.github/FUNDING.yml
+	new file:   node_modules/es-define-property/.nycrc
+	new file:   node_modules/es-define-property/CHANGELOG.md
+	new file:   node_modules/es-define-property/LICENSE
+	new file:   node_modules/es-define-property/README.md
+	new file:   node_modules/es-define-property/index.d.ts
+	new file:   node_modules/es-define-property/index.js
+	new file:   node_modules/es-define-property/package.json
+	new file:   node_modules/es-define-property/test/index.js
+	new file:   node_modules/es-define-property/tsconfig.json
+	new file:   node_modules/es-errors/.eslintrc
+	new file:   node_modules/es-errors/.github/FUNDING.yml
+	new file:   node_modules/es-errors/CHANGELOG.md
+	new file:   node_modules/es-errors/LICENSE
+	new file:   node_modules/es-errors/README.md
+	new file:   node_modules/es-errors/eval.d.ts
+	new file:   node_modules/es-errors/eval.js
+	new file:   node_modules/es-errors/index.d.ts
+	new file:   node_modules/es-errors/index.js
+	new file:   node_modules/es-errors/package.json
+	new file:   node_modules/es-errors/range.d.ts
+	new file:   node_modules/es-errors/range.js
+	new file:   node_modules/es-errors/ref.d.ts
+	new file:   node_modules/es-errors/ref.js
+	new file:   node_modules/es-errors/syntax.d.ts
+	new file:   node_modules/es-errors/syntax.js
+	new file:   node_modules/es-errors/test/index.js
+	new file:   node_modules/es-errors/tsconfig.json
+	new file:   node_modules/es-errors/type.d.ts
+	new file:   node_modules/es-errors/type.js
+	new file:   node_modules/es-errors/uri.d.ts
+	new file:   node_modules/es-errors/uri.js
+	new file:   node_modules/escape-html/LICENSE
+	new file:   node_modules/escape-html/Readme.md
+	new file:   node_modules/escape-html/index.js
+	new file:   node_modules/escape-html/package.json
+	new file:   node_modules/etag/HISTORY.md
+	new file:   node_modules/etag/LICENSE
+	new file:   node_modules/etag/README.md
+	new file:   node_modules/etag/index.js
+	new file:   node_modules/etag/package.json
+	new file:   node_modules/express/History.md
+	new file:   node_modules/express/LICENSE
+	new file:   node_modules/express/Readme.md
+	new file:   node_modules/express/index.js
+	new file:   node_modules/express/lib/application.js
+	new file:   node_modules/express/lib/express.js
+	new file:   node_modules/express/lib/middleware/init.js
+	new file:   node_modules/express/lib/middleware/query.js
+	new file:   node_modules/express/lib/request.js
+	new file:   node_modules/express/lib/response.js
+	new file:   node_modules/express/lib/router/index.js
+	new file:   node_modules/express/lib/router/layer.js
+	new file:   node_modules/express/lib/router/route.js
+	new file:   node_modules/express/lib/utils.js
+	new file:   node_modules/express/lib/view.js
+	new file:   node_modules/express/package.json
+	new file:   node_modules/finalhandler/HISTORY.md
+	new file:   node_modules/finalhandler/LICENSE
+	new file:   node_modules/finalhandler/README.md
+	new file:   node_modules/finalhandler/SECURITY.md
+	new file:   node_modules/finalhandler/index.js
+	new file:   node_modules/finalhandler/package.json
+	new file:   node_modules/forwarded/HISTORY.md
+	new file:   node_modules/forwarded/LICENSE
+	new file:   node_modules/forwarded/README.md
+	new file:   node_modules/forwarded/index.js
+	new file:   node_modules/forwarded/package.json
+	new file:   node_modules/fresh/HISTORY.md
+	new file:   node_modules/fresh/LICENSE
+	new file:   node_modules/fresh/README.md
+	new file:   node_modules/fresh/index.js
+	new file:   node_modules/fresh/package.json
+	new file:   node_modules/function-bind/.eslintrc
+	new file:   node_modules/function-bind/.github/FUNDING.yml
+	new file:   node_modules/function-bind/.github/SECURITY.md
+	new file:   node_modules/function-bind/.nycrc
+	new file:   node_modules/function-bind/CHANGELOG.md
+	new file:   node_modules/function-bind/LICENSE
+	new file:   node_modules/function-bind/README.md
+	new file:   node_modules/function-bind/implementation.js
+	new file:   node_modules/function-bind/index.js
+	new file:   node_modules/function-bind/package.json
+	new file:   node_modules/function-bind/test/.eslintrc
+	new file:   node_modules/function-bind/test/index.js
+	new file:   node_modules/get-intrinsic/.eslintrc
+	new file:   node_modules/get-intrinsic/.github/FUNDING.yml
+	new file:   node_modules/get-intrinsic/.nycrc
+	new file:   node_modules/get-intrinsic/CHANGELOG.md
+	new file:   node_modules/get-intrinsic/LICENSE
+	new file:   node_modules/get-intrinsic/README.md
+	new file:   node_modules/get-intrinsic/index.js
+	new file:   node_modules/get-intrinsic/package.json
+	new file:   node_modules/get-intrinsic/test/GetIntrinsic.js
+	new file:   node_modules/gopd/.eslintrc
+	new file:   node_modules/gopd/.github/FUNDING.yml
+	new file:   node_modules/gopd/CHANGELOG.md
+	new file:   node_modules/gopd/LICENSE
+	new file:   node_modules/gopd/README.md
+	new file:   node_modules/gopd/index.js
+	new file:   node_modules/gopd/package.json
+	new file:   node_modules/gopd/test/index.js
+	new file:   node_modules/has-property-descriptors/.eslintrc
+	new file:   node_modules/has-property-descriptors/.github/FUNDING.yml
+	new file:   node_modules/has-property-descriptors/.nycrc
+	new file:   node_modules/has-property-descriptors/CHANGELOG.md
+	new file:   node_modules/has-property-descriptors/LICENSE
+	new file:   node_modules/has-property-descriptors/README.md
+	new file:   node_modules/has-property-descriptors/index.js
+	new file:   node_modules/has-property-descriptors/package.json
+	new file:   node_modules/has-property-descriptors/test/index.js
+	new file:   node_modules/has-proto/.eslintrc
+	new file:   node_modules/has-proto/.github/FUNDING.yml
+	new file:   node_modules/has-proto/CHANGELOG.md
+	new file:   node_modules/has-proto/LICENSE
+	new file:   node_modules/has-proto/README.md
+	new file:   node_modules/has-proto/index.d.ts
+	new file:   node_modules/has-proto/index.js
+	new file:   node_modules/has-proto/package.json
+	new file:   node_modules/has-proto/test/index.js
+	new file:   node_modules/has-proto/tsconfig.json
+	new file:   node_modules/has-symbols/.eslintrc
+	new file:   node_modules/has-symbols/.github/FUNDING.yml
+	new file:   node_modules/has-symbols/.nycrc
+	new file:   node_modules/has-symbols/CHANGELOG.md
+	new file:   node_modules/has-symbols/LICENSE
+	new file:   node_modules/has-symbols/README.md
+	new file:   node_modules/has-symbols/index.js
+	new file:   node_modules/has-symbols/package.json
+	new file:   node_modules/has-symbols/shams.js
+	new file:   node_modules/has-symbols/test/index.js
+	new file:   node_modules/has-symbols/test/shams/core-js.js
+	new file:   node_modules/has-symbols/test/shams/get-own-property-symbols.js
+	new file:   node_modules/has-symbols/test/tests.js
+	new file:   node_modules/hasown/.eslintrc
+	new file:   node_modules/hasown/.github/FUNDING.yml
+	new file:   node_modules/hasown/.nycrc
+	new file:   node_modules/hasown/CHANGELOG.md
+	new file:   node_modules/hasown/LICENSE
+	new file:   node_modules/hasown/README.md
+	new file:   node_modules/hasown/index.d.ts
+	new file:   node_modules/hasown/index.js
+	new file:   node_modules/hasown/package.json
+	new file:   node_modules/hasown/tsconfig.json
+	new file:   node_modules/http-errors/HISTORY.md
+	new file:   node_modules/http-errors/LICENSE
+	new file:   node_modules/http-errors/README.md
+	new file:   node_modules/http-errors/index.js
+	new file:   node_modules/http-errors/package.json
+	new file:   node_modules/iconv-lite/Changelog.md
+	new file:   node_modules/iconv-lite/LICENSE
+	new file:   node_modules/iconv-lite/README.md
+	new file:   node_modules/iconv-lite/encodings/dbcs-codec.js
+	new file:   node_modules/iconv-lite/encodings/dbcs-data.js
+	new file:   node_modules/iconv-lite/encodings/index.js
+	new file:   node_modules/iconv-lite/encodings/internal.js
+	new file:   node_modules/iconv-lite/encodings/sbcs-codec.js
+	new file:   node_modules/iconv-lite/encodings/sbcs-data-generated.js
+	new file:   node_modules/iconv-lite/encodings/sbcs-data.js
+	new file:   node_modules/iconv-lite/encodings/tables/big5-added.json
+	new file:   node_modules/iconv-lite/encodings/tables/cp936.json
+	new file:   node_modules/iconv-lite/encodings/tables/cp949.json
+	new file:   node_modules/iconv-lite/encodings/tables/cp950.json
+	new file:   node_modules/iconv-lite/encodings/tables/eucjp.json
+	new file:   node_modules/iconv-lite/encodings/tables/gb18030-ranges.json
+	new file:   node_modules/iconv-lite/encodings/tables/gbk-added.json
+	new file:   node_modules/iconv-lite/encodings/tables/shiftjis.json
+	new file:   node_modules/iconv-lite/encodings/utf16.js
+	new file:   node_modules/iconv-lite/encodings/utf7.js
+	new file:   node_modules/iconv-lite/lib/bom-handling.js
+	new file:   node_modules/iconv-lite/lib/extend-node.js
+	new file:   node_modules/iconv-lite/lib/index.d.ts
+	new file:   node_modules/iconv-lite/lib/index.js
+	new file:   node_modules/iconv-lite/lib/streams.js
+	new file:   node_modules/iconv-lite/package.json
+	new file:   node_modules/inherits/LICENSE
+	new file:   node_modules/inherits/README.md
+	new file:   node_modules/inherits/inherits.js
+	new file:   node_modules/inherits/inherits_browser.js
+	new file:   node_modules/inherits/package.json
+	new file:   node_modules/ipaddr.js/LICENSE
+	new file:   node_modules/ipaddr.js/README.md
+	new file:   node_modules/ipaddr.js/ipaddr.min.js
+	new file:   node_modules/ipaddr.js/lib/ipaddr.js
+	new file:   node_modules/ipaddr.js/lib/ipaddr.js.d.ts
+	new file:   node_modules/ipaddr.js/package.json
+	new file:   node_modules/media-typer/HISTORY.md
+	new file:   node_modules/media-typer/LICENSE
+	new file:   node_modules/media-typer/README.md
+	new file:   node_modules/media-typer/index.js
+	new file:   node_modules/media-typer/package.json
+	new file:   node_modules/merge-descriptors/HISTORY.md
+	new file:   node_modules/merge-descriptors/LICENSE
+	new file:   node_modules/merge-descriptors/README.md
+	new file:   node_modules/merge-descriptors/index.js
+	new file:   node_modules/merge-descriptors/package.json
+	new file:   node_modules/methods/HISTORY.md
+	new file:   node_modules/methods/LICENSE
+	new file:   node_modules/methods/README.md
+	new file:   node_modules/methods/index.js
+	new file:   node_modules/methods/package.json
+	new file:   node_modules/mime-db/HISTORY.md
+	new file:   node_modules/mime-db/LICENSE
+	new file:   node_modules/mime-db/README.md
+	new file:   node_modules/mime-db/db.json
+	new file:   node_modules/mime-db/index.js
+	new file:   node_modules/mime-db/package.json
+	new file:   node_modules/mime-types/HISTORY.md
+	new file:   node_modules/mime-types/LICENSE
+	new file:   node_modules/mime-types/README.md
+	new file:   node_modules/mime-types/index.js
+	new file:   node_modules/mime-types/package.json
+	new file:   node_modules/mime/.npmignore
+	new file:   node_modules/mime/CHANGELOG.md
+	new file:   node_modules/mime/LICENSE
+	new file:   node_modules/mime/README.md
+	new file:   node_modules/mime/cli.js
+	new file:   node_modules/mime/mime.js
+	new file:   node_modules/mime/package.json
+	new file:   node_modules/mime/src/build.js
+	new file:   node_modules/mime/src/test.js
+	new file:   node_modules/mime/types.json
+	new file:   node_modules/ms/index.js
+	new file:   node_modules/ms/license.md
+	new file:   node_modules/ms/package.json
+	new file:   node_modules/ms/readme.md
+	new file:   node_modules/negotiator/HISTORY.md
+	new file:   node_modules/negotiator/LICENSE
+	new file:   node_modules/negotiator/README.md
+	new file:   node_modules/negotiator/index.js
+	new file:   node_modules/negotiator/lib/charset.js
+	new file:   node_modules/negotiator/lib/encoding.js
+	new file:   node_modules/negotiator/lib/language.js
+	new file:   node_modules/negotiator/lib/mediaType.js
+	new file:   node_modules/negotiator/package.json
+	new file:   node_modules/object-inspect/.eslintrc
+	new file:   node_modules/object-inspect/.github/FUNDING.yml
+	new file:   node_modules/object-inspect/.nycrc
+	new file:   node_modules/object-inspect/CHANGELOG.md
+	new file:   node_modules/object-inspect/LICENSE
+	new file:   node_modules/object-inspect/example/all.js
+	new file:   node_modules/object-inspect/example/circular.js
+	new file:   node_modules/object-inspect/example/fn.js
+	new file:   node_modules/object-inspect/example/inspect.js
+	new file:   node_modules/object-inspect/index.js
+	new file:   node_modules/object-inspect/package-support.json
+	new file:   node_modules/object-inspect/package.json
+	new file:   node_modules/object-inspect/readme.markdown
+	new file:   node_modules/object-inspect/test-core-js.js
+	new file:   node_modules/object-inspect/test/bigint.js
+	new file:   node_modules/object-inspect/test/browser/dom.js
+	new file:   node_modules/object-inspect/test/circular.js
+	new file:   node_modules/object-inspect/test/deep.js
+	new file:   node_modules/object-inspect/test/element.js
+	new file:   node_modules/object-inspect/test/err.js
+	new file:   node_modules/object-inspect/test/fakes.js
+	new file:   node_modules/object-inspect/test/fn.js
+	new file:   node_modules/object-inspect/test/global.js
+	new file:   node_modules/object-inspect/test/has.js
+	new file:   node_modules/object-inspect/test/holes.js
+	new file:   node_modules/object-inspect/test/indent-option.js
+	new file:   node_modules/object-inspect/test/inspect.js
+	new file:   node_modules/object-inspect/test/lowbyte.js
+	new file:   node_modules/object-inspect/test/number.js
+	new file:   node_modules/object-inspect/test/quoteStyle.js
+	new file:   node_modules/object-inspect/test/toStringTag.js
+	new file:   node_modules/object-inspect/test/undef.js
+	new file:   node_modules/object-inspect/test/values.js
+	new file:   node_modules/object-inspect/util.inspect.js
+	new file:   node_modules/on-finished/HISTORY.md
+	new file:   node_modules/on-finished/LICENSE
+	new file:   node_modules/on-finished/README.md
+	new file:   node_modules/on-finished/index.js
+	new file:   node_modules/on-finished/package.json
+	new file:   node_modules/parseurl/HISTORY.md
+	new file:   node_modules/parseurl/LICENSE
+	new file:   node_modules/parseurl/README.md
+	new file:   node_modules/parseurl/index.js
+	new file:   node_modules/parseurl/package.json
+	new file:   node_modules/path-to-regexp/History.md
+	new file:   node_modules/path-to-regexp/LICENSE
+	new file:   node_modules/path-to-regexp/Readme.md
+	new file:   node_modules/path-to-regexp/index.js
+	new file:   node_modules/path-to-regexp/package.json
+	new file:   node_modules/proxy-addr/HISTORY.md
+	new file:   node_modules/proxy-addr/LICENSE
+	new file:   node_modules/proxy-addr/README.md
+	new file:   node_modules/proxy-addr/index.js
+	new file:   node_modules/proxy-addr/package.json
+	new file:   node_modules/qs/.editorconfig
+	new file:   node_modules/qs/.eslintrc
+	new file:   node_modules/qs/.github/FUNDING.yml
+	new file:   node_modules/qs/.nycrc
+	new file:   node_modules/qs/CHANGELOG.md
+	new file:   node_modules/qs/LICENSE.md
+	new file:   node_modules/qs/README.md
+	new file:   node_modules/qs/dist/qs.js
+	new file:   node_modules/qs/lib/formats.js
+	new file:   node_modules/qs/lib/index.js
+	new file:   node_modules/qs/lib/parse.js
+	new file:   node_modules/qs/lib/stringify.js
+	new file:   node_modules/qs/lib/utils.js
+	new file:   node_modules/qs/package.json
+	new file:   node_modules/qs/test/parse.js
+	new file:   node_modules/qs/test/stringify.js
+	new file:   node_modules/qs/test/utils.js
+	new file:   node_modules/range-parser/HISTORY.md
+	new file:   node_modules/range-parser/LICENSE
+	new file:   node_modules/range-parser/README.md
+	new file:   node_modules/range-parser/index.js
+	new file:   node_modules/range-parser/package.json
+	new file:   node_modules/raw-body/HISTORY.md
+	new file:   node_modules/raw-body/LICENSE
+	new file:   node_modules/raw-body/README.md
+	new file:   node_modules/raw-body/SECURITY.md
+	new file:   node_modules/raw-body/index.d.ts
+	new file:   node_modules/raw-body/index.js
+	new file:   node_modules/raw-body/package.json
+	new file:   node_modules/safe-buffer/LICENSE
+	new file:   node_modules/safe-buffer/README.md
+	new file:   node_modules/safe-buffer/index.d.ts
+	new file:   node_modules/safe-buffer/index.js
+	new file:   node_modules/safe-buffer/package.json
+	new file:   node_modules/safer-buffer/LICENSE
+	new file:   node_modules/safer-buffer/Porting-Buffer.md
+	new file:   node_modules/safer-buffer/Readme.md
+	new file:   node_modules/safer-buffer/dangerous.js
+	new file:   node_modules/safer-buffer/package.json
+	new file:   node_modules/safer-buffer/safer.js
+	new file:   node_modules/safer-buffer/tests.js
+	new file:   node_modules/send/HISTORY.md
+	new file:   node_modules/send/LICENSE
+	new file:   node_modules/send/README.md
+	new file:   node_modules/send/SECURITY.md
+	new file:   node_modules/send/index.js
+	new file:   node_modules/send/node_modules/ms/index.js
+	new file:   node_modules/send/node_modules/ms/license.md
+	new file:   node_modules/send/node_modules/ms/package.json
+	new file:   node_modules/send/node_modules/ms/readme.md
+	new file:   node_modules/send/package.json
+	new file:   node_modules/serve-static/HISTORY.md
+	new file:   node_modules/serve-static/LICENSE
+	new file:   node_modules/serve-static/README.md
+	new file:   node_modules/serve-static/index.js
+	new file:   node_modules/serve-static/package.json
+	new file:   node_modules/set-function-length/.eslintrc
+	new file:   node_modules/set-function-length/.github/FUNDING.yml
+	new file:   node_modules/set-function-length/.nycrc
+	new file:   node_modules/set-function-length/CHANGELOG.md
+	new file:   node_modules/set-function-length/LICENSE
+	new file:   node_modules/set-function-length/README.md
+	new file:   node_modules/set-function-length/env.d.ts
+	new file:   node_modules/set-function-length/env.js
+	new file:   node_modules/set-function-length/index.d.ts
+	new file:   node_modules/set-function-length/index.js
+	new file:   node_modules/set-function-length/package.json
+	new file:   node_modules/set-function-length/tsconfig.json
+	new file:   node_modules/setprototypeof/LICENSE
+	new file:   node_modules/setprototypeof/README.md
+	new file:   node_modules/setprototypeof/index.d.ts
+	new file:   node_modules/setprototypeof/index.js
+	new file:   node_modules/setprototypeof/package.json
+	new file:   node_modules/setprototypeof/test/index.js
+	new file:   node_modules/side-channel/.editorconfig
+	new file:   node_modules/side-channel/.eslintrc
+	new file:   node_modules/side-channel/.github/FUNDING.yml
+	new file:   node_modules/side-channel/.nycrc
+	new file:   node_modules/side-channel/CHANGELOG.md
+	new file:   node_modules/side-channel/LICENSE
+	new file:   node_modules/side-channel/README.md
+	new file:   node_modules/side-channel/index.d.ts
+	new file:   node_modules/side-channel/index.js
+	new file:   node_modules/side-channel/package.json
+	new file:   node_modules/side-channel/test/index.js
+	new file:   node_modules/side-channel/tsconfig.json
+	new file:   node_modules/statuses/HISTORY.md
+	new file:   node_modules/statuses/LICENSE
+	new file:   node_modules/statuses/README.md
+	new file:   node_modules/statuses/codes.json
+	new file:   node_modules/statuses/index.js
+	new file:   node_modules/statuses/package.json
+	new file:   node_modules/toidentifier/HISTORY.md
+	new file:   node_modules/toidentifier/LICENSE
+	new file:   node_modules/toidentifier/README.md
+	new file:   node_modules/toidentifier/index.js
+	new file:   node_modules/toidentifier/package.json
+	new file:   node_modules/type-is/HISTORY.md
+	new file:   node_modules/type-is/LICENSE
+	new file:   node_modules/type-is/README.md
+	new file:   node_modules/type-is/index.js
+	new file:   node_modules/type-is/package.json
+	new file:   node_modules/unpipe/HISTORY.md
+	new file:   node_modules/unpipe/LICENSE
+	new file:   node_modules/unpipe/README.md
+	new file:   node_modules/unpipe/index.js
+	new file:   node_modules/unpipe/package.json
+	new file:   node_modules/utils-merge/.npmignore
+	new file:   node_modules/utils-merge/LICENSE
+	new file:   node_modules/utils-merge/README.md
+	new file:   node_modules/utils-merge/index.js
+	new file:   node_modules/utils-merge/package.json
+	new file:   node_modules/vary/HISTORY.md
+	new file:   node_modules/vary/LICENSE
+	new file:   node_modules/vary/README.md
+	new file:   node_modules/vary/index.js
+	new file:   node_modules/vary/package.json
+	new file:   package-lock.json
+	new file:   package.json
+	new file:   public/.DS_Store
+	new file:   public/index.html
+	new file:   public/script.js
+	new file:   script.js
+	new file:   server.js
+	new file:   style.css
+
+trishul@Trishulrams-MacBook-Pro flight-log-app % git commit -m "Initial commit"
+[main (root-commit) a3be085] Initial commit
+ Committer: Trishulram <trishul@Trishulrams-MacBook-Pro.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 526 files changed, 65847 insertions(+)
+ create mode 100644 .DS_Store
+ create mode 100644 index.html
+ create mode 100644 node_modules/.DS_Store
+ create mode 120000 node_modules/.bin/mime
+ create mode 100644 node_modules/.package-lock.json
+ create mode 100644 node_modules/accepts/HISTORY.md
+ create mode 100644 node_modules/accepts/LICENSE
+ create mode 100644 node_modules/accepts/README.md
+ create mode 100644 node_modules/accepts/index.js
+ create mode 100644 node_modules/accepts/package.json
+ create mode 100644 node_modules/array-flatten/LICENSE
+ create mode 100644 node_modules/array-flatten/README.md
+ create mode 100644 node_modules/array-flatten/array-flatten.js
+ create mode 100644 node_modules/array-flatten/package.json
+ create mode 100644 node_modules/body-parse/package.json
+ create mode 100644 node_modules/body-parser/HISTORY.md
+ create mode 100644 node_modules/body-parser/LICENSE
+ create mode 100644 node_modules/body-parser/README.md
+ create mode 100644 node_modules/body-parser/SECURITY.md
+ create mode 100644 node_modules/body-parser/index.js
+ create mode 100644 node_modules/body-parser/lib/read.js
+ create mode 100644 node_modules/body-parser/lib/types/json.js
+ create mode 100644 node_modules/body-parser/lib/types/raw.js
+ create mode 100644 node_modules/body-parser/lib/types/text.js
+ create mode 100644 node_modules/body-parser/lib/types/urlencoded.js
+ create mode 100644 node_modules/body-parser/package.json
+ create mode 100644 node_modules/bytes/History.md
+ create mode 100644 node_modules/bytes/LICENSE
+ create mode 100644 node_modules/bytes/Readme.md
+ create mode 100644 node_modules/bytes/index.js
+ create mode 100644 node_modules/bytes/package.json
+ create mode 100644 node_modules/call-bind/.eslintignore
+ create mode 100644 node_modules/call-bind/.eslintrc
+ create mode 100644 node_modules/call-bind/.github/FUNDING.yml
+ create mode 100644 node_modules/call-bind/.nycrc
+ create mode 100644 node_modules/call-bind/CHANGELOG.md
+ create mode 100644 node_modules/call-bind/LICENSE
+ create mode 100644 node_modules/call-bind/README.md
+ create mode 100644 node_modules/call-bind/callBound.js
+ create mode 100644 node_modules/call-bind/index.js
+ create mode 100644 node_modules/call-bind/package.json
+ create mode 100644 node_modules/call-bind/test/callBound.js
+ create mode 100644 node_modules/call-bind/test/index.js
+ create mode 100644 node_modules/content-disposition/HISTORY.md
+ create mode 100644 node_modules/content-disposition/LICENSE
+ create mode 100644 node_modules/content-disposition/README.md
+ create mode 100644 node_modules/content-disposition/index.js
+ create mode 100644 node_modules/content-disposition/package.json
+ create mode 100644 node_modules/content-type/HISTORY.md
+ create mode 100644 node_modules/content-type/LICENSE
+ create mode 100644 node_modules/content-type/README.md
+ create mode 100644 node_modules/content-type/index.js
+ create mode 100644 node_modules/content-type/package.json
+ create mode 100644 node_modules/cookie-signature/.npmignore
+ create mode 100644 node_modules/cookie-signature/History.md
+ create mode 100644 node_modules/cookie-signature/Readme.md
+ create mode 100644 node_modules/cookie-signature/index.js
+ create mode 100644 node_modules/cookie-signature/package.json
+ create mode 100644 node_modules/cookie/HISTORY.md
+ create mode 100644 node_modules/cookie/LICENSE
+ create mode 100644 node_modules/cookie/README.md
+ create mode 100644 node_modules/cookie/SECURITY.md
+ create mode 100644 node_modules/cookie/index.js
+ create mode 100644 node_modules/cookie/package.json
+ create mode 100644 node_modules/debug/.coveralls.yml
+ create mode 100644 node_modules/debug/.eslintrc
+ create mode 100644 node_modules/debug/.npmignore
+ create mode 100644 node_modules/debug/.travis.yml
+ create mode 100644 node_modules/debug/CHANGELOG.md
+ create mode 100644 node_modules/debug/LICENSE
+ create mode 100644 node_modules/debug/Makefile
+ create mode 100644 node_modules/debug/README.md
+ create mode 100644 node_modules/debug/component.json
+ create mode 100644 node_modules/debug/karma.conf.js
+ create mode 100644 node_modules/debug/node.js
+ create mode 100644 node_modules/debug/package.json
+ create mode 100644 node_modules/debug/src/browser.js
+ create mode 100644 node_modules/debug/src/debug.js
+ create mode 100644 node_modules/debug/src/index.js
+ create mode 100644 node_modules/debug/src/inspector-log.js
+ create mode 100644 node_modules/debug/src/node.js
+ create mode 100644 node_modules/define-data-property/.eslintrc
+ create mode 100644 node_modules/define-data-property/.github/FUNDING.yml
+ create mode 100644 node_modules/define-data-property/.nycrc
+ create mode 100644 node_modules/define-data-property/CHANGELOG.md
+ create mode 100644 node_modules/define-data-property/LICENSE
+ create mode 100644 node_modules/define-data-property/README.md
+ create mode 100644 node_modules/define-data-property/index.d.ts
+ create mode 100644 node_modules/define-data-property/index.js
+ create mode 100644 node_modules/define-data-property/package.json
+ create mode 100644 node_modules/define-data-property/test/index.js
+ create mode 100644 node_modules/define-data-property/tsconfig.json
+ create mode 100644 node_modules/depd/History.md
+ create mode 100644 node_modules/depd/LICENSE
+ create mode 100644 node_modules/depd/Readme.md
+ create mode 100644 node_modules/depd/index.js
+ create mode 100644 node_modules/depd/lib/browser/index.js
+ create mode 100644 node_modules/depd/package.json
+ create mode 100644 node_modules/destroy/LICENSE
+ create mode 100644 node_modules/destroy/README.md
+ create mode 100644 node_modules/destroy/index.js
+ create mode 100644 node_modules/destroy/package.json
+ create mode 100644 node_modules/ee-first/LICENSE
+ create mode 100644 node_modules/ee-first/README.md
+ create mode 100644 node_modules/ee-first/index.js
+ create mode 100644 node_modules/ee-first/package.json
+ create mode 100644 node_modules/encodeurl/HISTORY.md
+ create mode 100644 node_modules/encodeurl/LICENSE
+ create mode 100644 node_modules/encodeurl/README.md
+ create mode 100644 node_modules/encodeurl/index.js
+ create mode 100644 node_modules/encodeurl/package.json
+ create mode 100644 node_modules/es-define-property/.eslintrc
+ create mode 100644 node_modules/es-define-property/.github/FUNDING.yml
+ create mode 100644 node_modules/es-define-property/.nycrc
+ create mode 100644 node_modules/es-define-property/CHANGELOG.md
+ create mode 100644 node_modules/es-define-property/LICENSE
+ create mode 100644 node_modules/es-define-property/README.md
+ create mode 100644 node_modules/es-define-property/index.d.ts
+ create mode 100644 node_modules/es-define-property/index.js
+ create mode 100644 node_modules/es-define-property/package.json
+ create mode 100644 node_modules/es-define-property/test/index.js
+ create mode 100644 node_modules/es-define-property/tsconfig.json
+ create mode 100644 node_modules/es-errors/.eslintrc
+ create mode 100644 node_modules/es-errors/.github/FUNDING.yml
+ create mode 100644 node_modules/es-errors/CHANGELOG.md
+ create mode 100644 node_modules/es-errors/LICENSE
+ create mode 100644 node_modules/es-errors/README.md
+ create mode 100644 node_modules/es-errors/eval.d.ts
+ create mode 100644 node_modules/es-errors/eval.js
+ create mode 100644 node_modules/es-errors/index.d.ts
+ create mode 100644 node_modules/es-errors/index.js
+ create mode 100644 node_modules/es-errors/package.json
+ create mode 100644 node_modules/es-errors/range.d.ts
+ create mode 100644 node_modules/es-errors/range.js
+ create mode 100644 node_modules/es-errors/ref.d.ts
+ create mode 100644 node_modules/es-errors/ref.js
+ create mode 100644 node_modules/es-errors/syntax.d.ts
+ create mode 100644 node_modules/es-errors/syntax.js
+ create mode 100644 node_modules/es-errors/test/index.js
+ create mode 100644 node_modules/es-errors/tsconfig.json
+ create mode 100644 node_modules/es-errors/type.d.ts
+ create mode 100644 node_modules/es-errors/type.js
+ create mode 100644 node_modules/es-errors/uri.d.ts
+ create mode 100644 node_modules/es-errors/uri.js
+ create mode 100644 node_modules/escape-html/LICENSE
+ create mode 100644 node_modules/escape-html/Readme.md
+ create mode 100644 node_modules/escape-html/index.js
+ create mode 100644 node_modules/escape-html/package.json
+ create mode 100644 node_modules/etag/HISTORY.md
+ create mode 100644 node_modules/etag/LICENSE
+ create mode 100644 node_modules/etag/README.md
+ create mode 100644 node_modules/etag/index.js
+ create mode 100644 node_modules/etag/package.json
+ create mode 100644 node_modules/express/History.md
+ create mode 100644 node_modules/express/LICENSE
+ create mode 100644 node_modules/express/Readme.md
+ create mode 100644 node_modules/express/index.js
+ create mode 100644 node_modules/express/lib/application.js
+ create mode 100644 node_modules/express/lib/express.js
+ create mode 100644 node_modules/express/lib/middleware/init.js
+ create mode 100644 node_modules/express/lib/middleware/query.js
+ create mode 100644 node_modules/express/lib/request.js
+ create mode 100644 node_modules/express/lib/response.js
+ create mode 100644 node_modules/express/lib/router/index.js
+ create mode 100644 node_modules/express/lib/router/layer.js
+ create mode 100644 node_modules/express/lib/router/route.js
+ create mode 100644 node_modules/express/lib/utils.js
+ create mode 100644 node_modules/express/lib/view.js
+ create mode 100644 node_modules/express/package.json
+ create mode 100644 node_modules/finalhandler/HISTORY.md
+ create mode 100644 node_modules/finalhandler/LICENSE
+ create mode 100644 node_modules/finalhandler/README.md
+ create mode 100644 node_modules/finalhandler/SECURITY.md
+ create mode 100644 node_modules/finalhandler/index.js
+ create mode 100644 node_modules/finalhandler/package.json
+ create mode 100644 node_modules/forwarded/HISTORY.md
+ create mode 100644 node_modules/forwarded/LICENSE
+ create mode 100644 node_modules/forwarded/README.md
+ create mode 100644 node_modules/forwarded/index.js
+ create mode 100644 node_modules/forwarded/package.json
+ create mode 100644 node_modules/fresh/HISTORY.md
+ create mode 100644 node_modules/fresh/LICENSE
+ create mode 100644 node_modules/fresh/README.md
+ create mode 100644 node_modules/fresh/index.js
+ create mode 100644 node_modules/fresh/package.json
+ create mode 100644 node_modules/function-bind/.eslintrc
+ create mode 100644 node_modules/function-bind/.github/FUNDING.yml
+ create mode 100644 node_modules/function-bind/.github/SECURITY.md
+ create mode 100644 node_modules/function-bind/.nycrc
+ create mode 100644 node_modules/function-bind/CHANGELOG.md
+ create mode 100644 node_modules/function-bind/LICENSE
+ create mode 100644 node_modules/function-bind/README.md
+ create mode 100644 node_modules/function-bind/implementation.js
+ create mode 100644 node_modules/function-bind/index.js
+ create mode 100644 node_modules/function-bind/package.json
+ create mode 100644 node_modules/function-bind/test/.eslintrc
+ create mode 100644 node_modules/function-bind/test/index.js
+ create mode 100644 node_modules/get-intrinsic/.eslintrc
+ create mode 100644 node_modules/get-intrinsic/.github/FUNDING.yml
+ create mode 100644 node_modules/get-intrinsic/.nycrc
+ create mode 100644 node_modules/get-intrinsic/CHANGELOG.md
+ create mode 100644 node_modules/get-intrinsic/LICENSE
+ create mode 100644 node_modules/get-intrinsic/README.md
+ create mode 100644 node_modules/get-intrinsic/index.js
+ create mode 100644 node_modules/get-intrinsic/package.json
+ create mode 100644 node_modules/get-intrinsic/test/GetIntrinsic.js
+ create mode 100644 node_modules/gopd/.eslintrc
+ create mode 100644 node_modules/gopd/.github/FUNDING.yml
+ create mode 100644 node_modules/gopd/CHANGELOG.md
+ create mode 100644 node_modules/gopd/LICENSE
+ create mode 100644 node_modules/gopd/README.md
+ create mode 100644 node_modules/gopd/index.js
+ create mode 100644 node_modules/gopd/package.json
+ create mode 100644 node_modules/gopd/test/index.js
+ create mode 100644 node_modules/has-property-descriptors/.eslintrc
+ create mode 100644 node_modules/has-property-descriptors/.github/FUNDING.yml
+ create mode 100644 node_modules/has-property-descriptors/.nycrc
+ create mode 100644 node_modules/has-property-descriptors/CHANGELOG.md
+ create mode 100644 node_modules/has-property-descriptors/LICENSE
+ create mode 100644 node_modules/has-property-descriptors/README.md
+ create mode 100644 node_modules/has-property-descriptors/index.js
+ create mode 100644 node_modules/has-property-descriptors/package.json
+ create mode 100644 node_modules/has-property-descriptors/test/index.js
+ create mode 100644 node_modules/has-proto/.eslintrc
+ create mode 100644 node_modules/has-proto/.github/FUNDING.yml
+ create mode 100644 node_modules/has-proto/CHANGELOG.md
+ create mode 100644 node_modules/has-proto/LICENSE
+ create mode 100644 node_modules/has-proto/README.md
+ create mode 100644 node_modules/has-proto/index.d.ts
+ create mode 100644 node_modules/has-proto/index.js
+ create mode 100644 node_modules/has-proto/package.json
+ create mode 100644 node_modules/has-proto/test/index.js
+ create mode 100644 node_modules/has-proto/tsconfig.json
+ create mode 100644 node_modules/has-symbols/.eslintrc
+ create mode 100644 node_modules/has-symbols/.github/FUNDING.yml
+ create mode 100644 node_modules/has-symbols/.nycrc
+ create mode 100644 node_modules/has-symbols/CHANGELOG.md
+ create mode 100644 node_modules/has-symbols/LICENSE
+ create mode 100644 node_modules/has-symbols/README.md
+ create mode 100644 node_modules/has-symbols/index.js
+ create mode 100644 node_modules/has-symbols/package.json
+ create mode 100644 node_modules/has-symbols/shams.js
+ create mode 100644 node_modules/has-symbols/test/index.js
+ create mode 100644 node_modules/has-symbols/test/shams/core-js.js
+ create mode 100644 node_modules/has-symbols/test/shams/get-own-property-symbols.js
+ create mode 100644 node_modules/has-symbols/test/tests.js
+ create mode 100644 node_modules/hasown/.eslintrc
+ create mode 100644 node_modules/hasown/.github/FUNDING.yml
+ create mode 100644 node_modules/hasown/.nycrc
+ create mode 100644 node_modules/hasown/CHANGELOG.md
+ create mode 100644 node_modules/hasown/LICENSE
+ create mode 100644 node_modules/hasown/README.md
+ create mode 100644 node_modules/hasown/index.d.ts
+ create mode 100644 node_modules/hasown/index.js
+ create mode 100644 node_modules/hasown/package.json
+ create mode 100644 node_modules/hasown/tsconfig.json
+ create mode 100644 node_modules/http-errors/HISTORY.md
+ create mode 100644 node_modules/http-errors/LICENSE
+ create mode 100644 node_modules/http-errors/README.md
+ create mode 100644 node_modules/http-errors/index.js
+ create mode 100644 node_modules/http-errors/package.json
+ create mode 100644 node_modules/iconv-lite/Changelog.md
+ create mode 100644 node_modules/iconv-lite/LICENSE
+ create mode 100644 node_modules/iconv-lite/README.md
+ create mode 100644 node_modules/iconv-lite/encodings/dbcs-codec.js
+ create mode 100644 node_modules/iconv-lite/encodings/dbcs-data.js
+ create mode 100644 node_modules/iconv-lite/encodings/index.js
+ create mode 100644 node_modules/iconv-lite/encodings/internal.js
+ create mode 100644 node_modules/iconv-lite/encodings/sbcs-codec.js
+ create mode 100644 node_modules/iconv-lite/encodings/sbcs-data-generated.js
+ create mode 100644 node_modules/iconv-lite/encodings/sbcs-data.js
+ create mode 100644 node_modules/iconv-lite/encodings/tables/big5-added.json
+ create mode 100644 node_modules/iconv-lite/encodings/tables/cp936.json
+ create mode 100644 node_modules/iconv-lite/encodings/tables/cp949.json
+ create mode 100644 node_modules/iconv-lite/encodings/tables/cp950.json
+ create mode 100644 node_modules/iconv-lite/encodings/tables/eucjp.json
+ create mode 100644 node_modules/iconv-lite/encodings/tables/gb18030-ranges.json
+ create mode 100644 node_modules/iconv-lite/encodings/tables/gbk-added.json
+ create mode 100644 node_modules/iconv-lite/encodings/tables/shiftjis.json
+ create mode 100644 node_modules/iconv-lite/encodings/utf16.js
+ create mode 100644 node_modules/iconv-lite/encodings/utf7.js
+ create mode 100644 node_modules/iconv-lite/lib/bom-handling.js
+ create mode 100644 node_modules/iconv-lite/lib/extend-node.js
+ create mode 100644 node_modules/iconv-lite/lib/index.d.ts
+ create mode 100644 node_modules/iconv-lite/lib/index.js
+ create mode 100644 node_modules/iconv-lite/lib/streams.js
+ create mode 100644 node_modules/iconv-lite/package.json
+ create mode 100644 node_modules/inherits/LICENSE
+ create mode 100644 node_modules/inherits/README.md
+ create mode 100644 node_modules/inherits/inherits.js
+ create mode 100644 node_modules/inherits/inherits_browser.js
+ create mode 100644 node_modules/inherits/package.json
+ create mode 100644 node_modules/ipaddr.js/LICENSE
+ create mode 100644 node_modules/ipaddr.js/README.md
+ create mode 100644 node_modules/ipaddr.js/ipaddr.min.js
+ create mode 100644 node_modules/ipaddr.js/lib/ipaddr.js
+ create mode 100644 node_modules/ipaddr.js/lib/ipaddr.js.d.ts
+ create mode 100644 node_modules/ipaddr.js/package.json
+ create mode 100644 node_modules/media-typer/HISTORY.md
+ create mode 100644 node_modules/media-typer/LICENSE
+ create mode 100644 node_modules/media-typer/README.md
+ create mode 100644 node_modules/media-typer/index.js
+ create mode 100644 node_modules/media-typer/package.json
+ create mode 100644 node_modules/merge-descriptors/HISTORY.md
+ create mode 100644 node_modules/merge-descriptors/LICENSE
+ create mode 100644 node_modules/merge-descriptors/README.md
+ create mode 100644 node_modules/merge-descriptors/index.js
+ create mode 100644 node_modules/merge-descriptors/package.json
+ create mode 100644 node_modules/methods/HISTORY.md
+ create mode 100644 node_modules/methods/LICENSE
+ create mode 100644 node_modules/methods/README.md
+ create mode 100644 node_modules/methods/index.js
+ create mode 100644 node_modules/methods/package.json
+ create mode 100644 node_modules/mime-db/HISTORY.md
+ create mode 100644 node_modules/mime-db/LICENSE
+ create mode 100644 node_modules/mime-db/README.md
+ create mode 100644 node_modules/mime-db/db.json
+ create mode 100644 node_modules/mime-db/index.js
+ create mode 100644 node_modules/mime-db/package.json
+ create mode 100644 node_modules/mime-types/HISTORY.md
+ create mode 100644 node_modules/mime-types/LICENSE
+ create mode 100644 node_modules/mime-types/README.md
+ create mode 100644 node_modules/mime-types/index.js
+ create mode 100644 node_modules/mime-types/package.json
+ create mode 100644 node_modules/mime/.npmignore
+ create mode 100644 node_modules/mime/CHANGELOG.md
+ create mode 100644 node_modules/mime/LICENSE
+ create mode 100644 node_modules/mime/README.md
+ create mode 100755 node_modules/mime/cli.js
+ create mode 100644 node_modules/mime/mime.js
+ create mode 100644 node_modules/mime/package.json
+ create mode 100755 node_modules/mime/src/build.js
+ create mode 100644 node_modules/mime/src/test.js
+ create mode 100644 node_modules/mime/types.json
+ create mode 100644 node_modules/ms/index.js
+ create mode 100644 node_modules/ms/license.md
+ create mode 100644 node_modules/ms/package.json
+ create mode 100644 node_modules/ms/readme.md
+ create mode 100644 node_modules/negotiator/HISTORY.md
+ create mode 100644 node_modules/negotiator/LICENSE
+ create mode 100644 node_modules/negotiator/README.md
+ create mode 100644 node_modules/negotiator/index.js
+ create mode 100644 node_modules/negotiator/lib/charset.js
+ create mode 100644 node_modules/negotiator/lib/encoding.js
+ create mode 100644 node_modules/negotiator/lib/language.js
+ create mode 100644 node_modules/negotiator/lib/mediaType.js
+ create mode 100644 node_modules/negotiator/package.json
+ create mode 100644 node_modules/object-inspect/.eslintrc
+ create mode 100644 node_modules/object-inspect/.github/FUNDING.yml
+ create mode 100644 node_modules/object-inspect/.nycrc
+ create mode 100644 node_modules/object-inspect/CHANGELOG.md
+ create mode 100644 node_modules/object-inspect/LICENSE
+ create mode 100644 node_modules/object-inspect/example/all.js
+ create mode 100644 node_modules/object-inspect/example/circular.js
+ create mode 100644 node_modules/object-inspect/example/fn.js
+ create mode 100644 node_modules/object-inspect/example/inspect.js
+ create mode 100644 node_modules/object-inspect/index.js
+ create mode 100644 node_modules/object-inspect/package-support.json
+ create mode 100644 node_modules/object-inspect/package.json
+ create mode 100644 node_modules/object-inspect/readme.markdown
+ create mode 100644 node_modules/object-inspect/test-core-js.js
+ create mode 100644 node_modules/object-inspect/test/bigint.js
+ create mode 100644 node_modules/object-inspect/test/browser/dom.js
+ create mode 100644 node_modules/object-inspect/test/circular.js
+ create mode 100644 node_modules/object-inspect/test/deep.js
+ create mode 100644 node_modules/object-inspect/test/element.js
+ create mode 100644 node_modules/object-inspect/test/err.js
+ create mode 100644 node_modules/object-inspect/test/fakes.js
+ create mode 100644 node_modules/object-inspect/test/fn.js
+ create mode 100644 node_modules/object-inspect/test/global.js
+ create mode 100644 node_modules/object-inspect/test/has.js
+ create mode 100644 node_modules/object-inspect/test/holes.js
+ create mode 100644 node_modules/object-inspect/test/indent-option.js
+ create mode 100644 node_modules/object-inspect/test/inspect.js
+ create mode 100644 node_modules/object-inspect/test/lowbyte.js
+ create mode 100644 node_modules/object-inspect/test/number.js
+ create mode 100644 node_modules/object-inspect/test/quoteStyle.js
+ create mode 100644 node_modules/object-inspect/test/toStringTag.js
+ create mode 100644 node_modules/object-inspect/test/undef.js
+ create mode 100644 node_modules/object-inspect/test/values.js
+ create mode 100644 node_modules/object-inspect/util.inspect.js
+ create mode 100644 node_modules/on-finished/HISTORY.md
+ create mode 100644 node_modules/on-finished/LICENSE
+ create mode 100644 node_modules/on-finished/README.md
+ create mode 100644 node_modules/on-finished/index.js
+ create mode 100644 node_modules/on-finished/package.json
+ create mode 100644 node_modules/parseurl/HISTORY.md
+ create mode 100644 node_modules/parseurl/LICENSE
+ create mode 100644 node_modules/parseurl/README.md
+ create mode 100644 node_modules/parseurl/index.js
+ create mode 100644 node_modules/parseurl/package.json
+ create mode 100644 node_modules/path-to-regexp/History.md
+ create mode 100644 node_modules/path-to-regexp/LICENSE
+ create mode 100644 node_modules/path-to-regexp/Readme.md
+ create mode 100644 node_modules/path-to-regexp/index.js
+ create mode 100644 node_modules/path-to-regexp/package.json
+ create mode 100644 node_modules/proxy-addr/HISTORY.md
+ create mode 100644 node_modules/proxy-addr/LICENSE
+ create mode 100644 node_modules/proxy-addr/README.md
+ create mode 100644 node_modules/proxy-addr/index.js
+ create mode 100644 node_modules/proxy-addr/package.json
+ create mode 100644 node_modules/qs/.editorconfig
+ create mode 100644 node_modules/qs/.eslintrc
+ create mode 100644 node_modules/qs/.github/FUNDING.yml
+ create mode 100644 node_modules/qs/.nycrc
+ create mode 100644 node_modules/qs/CHANGELOG.md
+ create mode 100644 node_modules/qs/LICENSE.md
+ create mode 100644 node_modules/qs/README.md
+ create mode 100644 node_modules/qs/dist/qs.js
+ create mode 100644 node_modules/qs/lib/formats.js
+ create mode 100644 node_modules/qs/lib/index.js
+ create mode 100644 node_modules/qs/lib/parse.js
+ create mode 100644 node_modules/qs/lib/stringify.js
+ create mode 100644 node_modules/qs/lib/utils.js
+ create mode 100644 node_modules/qs/package.json
+ create mode 100644 node_modules/qs/test/parse.js
+ create mode 100644 node_modules/qs/test/stringify.js
+ create mode 100644 node_modules/qs/test/utils.js
+ create mode 100644 node_modules/range-parser/HISTORY.md
+ create mode 100644 node_modules/range-parser/LICENSE
+ create mode 100644 node_modules/range-parser/README.md
+ create mode 100644 node_modules/range-parser/index.js
+ create mode 100644 node_modules/range-parser/package.json
+ create mode 100644 node_modules/raw-body/HISTORY.md
+ create mode 100644 node_modules/raw-body/LICENSE
+ create mode 100644 node_modules/raw-body/README.md
+ create mode 100644 node_modules/raw-body/SECURITY.md
+ create mode 100644 node_modules/raw-body/index.d.ts
+ create mode 100644 node_modules/raw-body/index.js
+ create mode 100644 node_modules/raw-body/package.json
+ create mode 100644 node_modules/safe-buffer/LICENSE
+ create mode 100644 node_modules/safe-buffer/README.md
+ create mode 100644 node_modules/safe-buffer/index.d.ts
+ create mode 100644 node_modules/safe-buffer/index.js
+ create mode 100644 node_modules/safe-buffer/package.json
+ create mode 100644 node_modules/safer-buffer/LICENSE
+ create mode 100644 node_modules/safer-buffer/Porting-Buffer.md
+ create mode 100644 node_modules/safer-buffer/Readme.md
+ create mode 100644 node_modules/safer-buffer/dangerous.js
+ create mode 100644 node_modules/safer-buffer/package.json
+ create mode 100644 node_modules/safer-buffer/safer.js
+ create mode 100644 node_modules/safer-buffer/tests.js
+ create mode 100644 node_modules/send/HISTORY.md
+ create mode 100644 node_modules/send/LICENSE
+ create mode 100644 node_modules/send/README.md
+ create mode 100644 node_modules/send/SECURITY.md
+ create mode 100644 node_modules/send/index.js
+ create mode 100644 node_modules/send/node_modules/ms/index.js
+ create mode 100644 node_modules/send/node_modules/ms/license.md
+ create mode 100644 node_modules/send/node_modules/ms/package.json
+ create mode 100644 node_modules/send/node_modules/ms/readme.md
+ create mode 100644 node_modules/send/package.json
+ create mode 100644 node_modules/serve-static/HISTORY.md
+ create mode 100644 node_modules/serve-static/LICENSE
+ create mode 100644 node_modules/serve-static/README.md
+ create mode 100644 node_modules/serve-static/index.js
+ create mode 100644 node_modules/serve-static/package.json
+ create mode 100644 node_modules/set-function-length/.eslintrc
+ create mode 100644 node_modules/set-function-length/.github/FUNDING.yml
+ create mode 100644 node_modules/set-function-length/.nycrc
+ create mode 100644 node_modules/set-function-length/CHANGELOG.md
+ create mode 100644 node_modules/set-function-length/LICENSE
+ create mode 100644 node_modules/set-function-length/README.md
+ create mode 100644 node_modules/set-function-length/env.d.ts
+ create mode 100644 node_modules/set-function-length/env.js
+ create mode 100644 node_modules/set-function-length/index.d.ts
+ create mode 100644 node_modules/set-function-length/index.js
+ create mode 100644 node_modules/set-function-length/package.json
+ create mode 100644 node_modules/set-function-length/tsconfig.json
+ create mode 100644 node_modules/setprototypeof/LICENSE
+ create mode 100644 node_modules/setprototypeof/README.md
+ create mode 100644 node_modules/setprototypeof/index.d.ts
+ create mode 100644 node_modules/setprototypeof/index.js
+ create mode 100644 node_modules/setprototypeof/package.json
+ create mode 100644 node_modules/setprototypeof/test/index.js
+ create mode 100644 node_modules/side-channel/.editorconfig
+ create mode 100644 node_modules/side-channel/.eslintrc
+ create mode 100644 node_modules/side-channel/.github/FUNDING.yml
+ create mode 100644 node_modules/side-channel/.nycrc
+ create mode 100644 node_modules/side-channel/CHANGELOG.md
+ create mode 100644 node_modules/side-channel/LICENSE
+ create mode 100644 node_modules/side-channel/README.md
+ create mode 100644 node_modules/side-channel/index.d.ts
+ create mode 100644 node_modules/side-channel/index.js
+ create mode 100644 node_modules/side-channel/package.json
+ create mode 100644 node_modules/side-channel/test/index.js
+ create mode 100644 node_modules/side-channel/tsconfig.json
+ create mode 100644 node_modules/statuses/HISTORY.md
+ create mode 100644 node_modules/statuses/LICENSE
+ create mode 100644 node_modules/statuses/README.md
+ create mode 100644 node_modules/statuses/codes.json
+ create mode 100644 node_modules/statuses/index.js
+ create mode 100644 node_modules/statuses/package.json
+ create mode 100644 node_modules/toidentifier/HISTORY.md
+ create mode 100644 node_modules/toidentifier/LICENSE
+ create mode 100644 node_modules/toidentifier/README.md
+ create mode 100644 node_modules/toidentifier/index.js
+ create mode 100644 node_modules/toidentifier/package.json
+ create mode 100644 node_modules/type-is/HISTORY.md
+ create mode 100644 node_modules/type-is/LICENSE
+ create mode 100644 node_modules/type-is/README.md
+ create mode 100644 node_modules/type-is/index.js
+ create mode 100644 node_modules/type-is/package.json
+ create mode 100644 node_modules/unpipe/HISTORY.md
+ create mode 100644 node_modules/unpipe/LICENSE
+ create mode 100644 node_modules/unpipe/README.md
+ create mode 100644 node_modules/unpipe/index.js
+ create mode 100644 node_modules/unpipe/package.json
+ create mode 100644 node_modules/utils-merge/.npmignore
+ create mode 100644 node_modules/utils-merge/LICENSE
+ create mode 100644 node_modules/utils-merge/README.md
+ create mode 100644 node_modules/utils-merge/index.js
+ create mode 100644 node_modules/utils-merge/package.json
+ create mode 100644 node_modules/vary/HISTORY.md
+ create mode 100644 node_modules/vary/LICENSE
+ create mode 100644 node_modules/vary/README.md
+ create mode 100644 node_modules/vary/index.js
+ create mode 100644 node_modules/vary/package.json
+ create mode 100644 package-lock.json
+ create mode 100644 package.json
+ create mode 100644 public/.DS_Store
+ create mode 100644 public/index.html
+ create mode 100644 public/script.js
+ create mode 100644 script.js
+ create mode 100644 server.js
+ create mode 100644 style.css
+trishul@Trishulrams-MacBook-Pro flight-log-app % https://github.com/Trishul-10/flight_log_app_.git
+zsh: no such file or directory: https://github.com/Trishul-10/flight_log_app_.git
+trishul@Trishulrams-MacBook-Pro flight-log-app % git remote add origin https://github.com/Trishul-10/flight-log-app.git
+git branch -M main
+git push -u origin main
+error: remote origin already exists.
+Username for 'https://github.com': Trishul-10
+Password for 'https://Trishul-10@github.com': 
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/Trishul-10/flight-log-app.git/'
+trishul@Trishulrams-MacBook-Pro flight-log-app % 
